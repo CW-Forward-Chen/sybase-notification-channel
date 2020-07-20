@@ -48,8 +48,8 @@ class SybaseChannel
 
     protected function formatMessage($to, $message)
     {
-        $subject = iconv("UTF-8","big5",$message->subject);
-        $content = $txt = iconv("UTF-8","big5",$message->content);
+        $subject = mb_convert_encoding($message->subject, "Big5", "UTF-8");
+        $content = $txt = mb_convert_encoding($message->content, "Big5", "UTF-8");
 
         return "Version=2.0
                     Subject={$subject}
